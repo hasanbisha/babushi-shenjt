@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class Customer {
     private static String FILENAME = "customers.csv";
 
-    private int id;
+    public int id;
     private String name;
 
     Customer(int id, String name) {

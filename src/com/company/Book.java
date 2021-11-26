@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class Book {
     private static String FILENAME = "books.csv";
 
-    private int id;
+    public int id;
     private String name;
     private String author;
     private int pages;

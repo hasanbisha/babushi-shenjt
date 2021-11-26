@@ -1,9 +1,6 @@
 package com.company;
 
 import java.util.HashMap;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 /*
 * libraries
@@ -31,17 +28,45 @@ import java.io.IOException;
 
 public class Library {
     HashMap<Integer, Book> bookMap = new HashMap<Integer, Book>();
-    HashMap<Integer, Customer> customersMap = new HashMap<Integer, Customer>();
+    HashMap<Integer, Customer> customerMap = new HashMap<Integer, Customer>();
 
     Library() {
         this.bookMap = Book.readFromFile();
-        this.customersMap = Customer.readFromFile();
+        this.customerMap = Customer.readFromFile();
 
-        System.out.println(this.customersMap);
+        this.addCustomer(new Customer(
+            5,
+            "Kolloz Kallini"
+        ));
+    }
 
-        Customer customer = new Customer(6, "Cak arito");
-        this.customersMap.put(6, customer);
+    public void addBook(Book book) {
+        this.bookMap.put(book.id, book);
+        Book.writeFromMap(this.bookMap);
+    }
 
-        Customer.writeFromMap(this.customersMap);
+    public void updateBook(Book book) {
+        this.bookMap.put(book.id, book);
+        Book.writeFromMap(this.bookMap);
+    }
+
+    public void removeBook(int id) {
+        this.bookMap.remove(id);
+        Book.writeFromMap(this.bookMap);
+    }
+
+    public void addCustomer(Customer customer) {
+        this.customerMap.put(customer.id, customer);
+        Customer.writeFromMap(this.customerMap);
+    }
+
+    public void updateCustomer(Customer customer) {
+        this.customerMap.put(customer.id, customer);
+        Customer.writeFromMap(this.customerMap);
+    }
+
+    public void removeCustomer(int id) {
+        this.customerMap.remove(id);
+        Customer.writeFromMap(this.customerMap);
     }
 }
