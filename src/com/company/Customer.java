@@ -21,6 +21,10 @@ public class Customer {
         this.name = name;
     }
 
+    /**
+     * reads file and translates it to a hashmap of customers
+     * @return hashmap of customers from the file
+     */
     public static HashMap<Integer, Customer> readFromFile()
     {
         HashMap<Integer, Customer> customersMap = new HashMap<Integer, Customer>();
@@ -34,6 +38,10 @@ public class Customer {
         return customersMap;
     }
 
+    /**
+     * receives a hashmap of customers and saves it to the file
+     * @param map hashmap of customers to be written to file
+     */
     public static void writeFromMap(HashMap<Integer, Customer> map) {
         String file = "id,name\n";
 
